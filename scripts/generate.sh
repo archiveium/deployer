@@ -12,4 +12,7 @@ sed -i 's/APP_VERSION/0.1.6/g' docker-compose.yml
 echo 'Replacing jobber version'
 sed -i 's/JOBBER_VERSION/0.0.8/g' docker-compose.yml
 
-echo 'Finished processing'
+echo 'Commit docker-compose.yml'
+git add docker-compose.yml
+git commit -m "Bump version" docker-compose.yml
+git push
