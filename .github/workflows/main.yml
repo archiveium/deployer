@@ -1,4 +1,4 @@
-name: Build docker-compose.yml file
+name: Update docker-compose.yml
 
 on:
   push:
@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      jobberVersion:
+        required: false
+        type: string 
 
 jobs:
   generate:
@@ -14,4 +18,5 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - run: ./scripts/generate.sh
+      - run: echo ${{ inputs.jobberVersion }}
+      # - run: ./scripts/generate.sh
