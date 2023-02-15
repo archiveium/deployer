@@ -9,7 +9,7 @@ on:
     inputs:
       jobberVersion:
         required: false
-        type: number 
+        type: string 
 
 jobs:
   generate:
