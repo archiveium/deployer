@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: archiveium/archiveium:0.1.5
+    image: archiveium/archiveium:APP_VERSION
     ports:
       - '5292:80'
     volumes:
@@ -21,7 +21,7 @@ services:
       - db
 
   jobber:
-    image: archiveium/jobber:0.0.7
+    image: archiveium/jobber:1.2.3
     volumes:
       # Enable mount when jobber has logic 
       # to put logs under /logs directory
