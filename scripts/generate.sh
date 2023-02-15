@@ -7,10 +7,10 @@ echo 'Creating temporary file to work on'
 cp templates/docker-compose.template docker-compose.yml
 
 echo 'Replacing app version'
-sed -i 's/APP_VERSION/0.1.6/g' docker-compose.yml
+sed -i 's/APP_VERSION/0.1.5/g' docker-compose.yml
 
 echo 'Replacing jobber version'
-sed -i 's/JOBBER_VERSION/0.0.8/g' docker-compose.yml
+sed -i 's/JOBBER_VERSION/0.0.7/g' docker-compose.yml
 
 echo 'Commit docker-compose.yml'
 git add docker-compose.yml
