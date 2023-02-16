@@ -27,6 +27,8 @@ services:
       # to put logs under /logs directory
       # - logs:/app/logs
       - jobber_production.json:/app/config/production.json
+    environment:
+      TZ: 'America/Toronto'
     networks:
       - archiveium
     depends_on:
