@@ -9,7 +9,10 @@ on:
     inputs:
       jobberVersion:
         required: false
-        type: string 
+        type: string
+      appVersion:
+        required: false
+        type: string
 
 jobs:
   generate:
@@ -18,5 +21,4 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - run: echo ${{ inputs.jobberVersion }}
-      # - run: ./scripts/generate.sh
+      - run: ./scripts/generate.sh -j ${{ inputs.jobberVersion }} -a ${{ inputs.appVersion }}

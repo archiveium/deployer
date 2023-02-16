@@ -1,16 +1,29 @@
 #!/bin/bash
 
-echo 'Removing existing docker-compose.yml file'
-rm docker-compose.yml
+# Fail if no argument is supplied
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+    exit 1
+fi
 
-echo 'Creating temporary file to work on'
-cp templates/docker-compose.template docker-compose.yml
+while getopts :j:a: flag
+do
+    case "${flag}" in
+        a) app=${OPTARG};;
+        j) jobber=${OPTARG};;
+    esac
+done
 
-echo 'Replacing app version'
-sed -i 's/APP_VERSION/0.1.5/g' docker-compose.yml
+if [[ -n "$app" ]]; then
+    echo 'Replacing app version'
+    sed -i "s/archiveium\/archiveium.*/archiveium\/archiveium:$app/g" docker-compose.yml
+fi
 
-echo 'Replacing jobber version'
-sed -i 's/JOBBER_VERSION/0.0.7/g' docker-compose.yml
+if [[ -n "$jobber" ]]; then
+    echo 'Replacing jobber version'
+    sed -i "s/archiveium\/jobber.*/archiveium\/jobber:$jobber/g" docker-compose.yml
+fi
 
 echo 'Setting up github user for auto-commit'
 git config user.name github-actions
