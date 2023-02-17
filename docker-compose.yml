@@ -21,7 +21,7 @@ services:
       - db
 
   jobber:
-    image: archiveium/jobber:0.0.9
+    image: archiveium/jobber:-a
     volumes:
       # Enable mount when jobber has logic 
       # to put logs under /logs directory
