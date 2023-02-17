@@ -17,4 +17,4 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-      - run: ./scripts/generate.sh -j ${{ inputs.jobberVersion }} -a ${{ inputs.appVersion }}
+      - run: ./scripts/generate.sh -j "${{ inputs.jobberVersion }}" -a "${{ inputs.appVersion }}"

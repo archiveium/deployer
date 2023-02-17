@@ -10,8 +10,8 @@ fi
 while getopts :j:a: flag
 do
     case "${flag}" in
-        a) app=${OPTARG};;
         j) jobber=${OPTARG};;
+        a) app=${OPTARG};;
     esac
 done
 
