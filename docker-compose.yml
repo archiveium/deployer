@@ -26,12 +26,11 @@ services:
   jobber:
     image: archiveium/jobber:0.0.12
     volumes:
-      # Enable mount when jobber has logic 
-      # to put logs under /logs directory
-      # - logs:/app/logs
-      - ./jobber_production.json:/app/config/production.json
+      - jobber_logs:/app/logs
+      - ./jobber_production.json:/app/config/production-0.json
     environment:
       TZ: 'America/Toronto'   # Change timezone as needed
+      NODE_APP_INSTANCE: 0
     networks:
       - archiveium
     depends_on:
@@ -81,6 +80,7 @@ volumes:
   db_data:
   app_storage:
   minio_data:
+  jobber_logs:
 
 networks:
   archiveium:
