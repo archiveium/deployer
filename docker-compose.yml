@@ -24,7 +24,7 @@ services:
       - db
 
   jobber:
-    image: archiveium/jobber:0.0.13
+    image: archiveium/jobber:0.0.14
     volumes:
       - jobber_logs:/app/logs
       - ./jobber_production.json:/app/config/production-0.json
