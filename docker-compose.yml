@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: archiveium/archiveium:0.1.8
+    image: archiveium/archiveium:0.1.9
     ports:
       - 5292:80
     volumes:
